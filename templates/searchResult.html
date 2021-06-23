@@ -28,7 +28,7 @@
 					  <div class="row fontawesome-icon-list">
 					  	{% if posts %}
 					  	 {% for post in posts %}
-					  	<ul>
+					  	<ul style="list-style-type:none">
 					  		<a href="{% url 'movie:post_detail' post.slug %}"><li>
 					  		<br>
 
@@ -46,7 +46,7 @@
 					  	
 					  	<br>
 					  	{% for movie  in movies %}
-					  	<ul>
+					  	<ul style="list-style-type:none">
 					  		<a href="{% url 'movie:movie_detail' movie.slug %}"><li>
 					  		<h3 class="text-center"> {{movie.title}}<br><h5 class="text-center"  style="color:orange;">Kino filim</h5></h3><br>
 
