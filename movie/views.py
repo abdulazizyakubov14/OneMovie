@@ -82,7 +82,7 @@ def getCatPost(request,category_slug):
 def getTagPost(request,tag_slug):
 	tag = Tags.objects.get(slug=tag_slug)
 	posts = tag.posts.all()
-	return render(request, 'cat_post.html', {'posts':posts})
+	return render(request, 'news.html', {'posts':posts})
 
 
 
