@@ -25,35 +25,71 @@
 					  <h3 class="page-header page-header icon-subheading">{{total_results}} natijalar topildi </h3>
 
 
-					  <div class="row fontawesome-icon-list">
-					  	{% if posts %}
-					  	 {% for post in posts %}
-					  	<ul style="list-style-type:none">
-					  		<a href="{% url 'movie:post_detail' post.slug %}"><li>
-					  		<br>
 
-					  		<h3 class="text-center"> {{post.title}}<br><h5 class="text-center" style="color:orange;">Maqola va Yangiliklar</h5></h3><br>
-					  		</li></a>
-					  	</ul>
-					  	{% endfor %} 
+						<div class="container">
+							{% if posts %}
+								<div class="browse-inner">{% for m in posts  %}
+								
+						
+							   <div class="col-md-2 w3l-movie-gride-agile">
+										 <a href="{% url 'movie:post_detail' m.slug %}" class="hvr-shutter-out-horizontal"><img src="{{m.image.url}}" title="{{m.title}}" alt=" " />
+									     <div class="w3l-action-icon"></div>
+									</a>
+									  <div class="mid-1">
+										<div class="w3l-movie-text">
+											<h6><a href="{% url 'movie:post_detail' m.slug %}">{{m.title}}</a></h6>							
+										</div>
+										<div class="mid-2">
+										
+											<p>{{m.year}}</p>
+											<div class="clearfix"></div>
+										</div>
+											
+									</div>
+							 	    <div class="ribben two">
+										<p>Maqola</p>
+									</div>	
+									</div>
+										{% endfor %}
 
-					  	{% else %}
-					  	      <div class="jumbotron">
-					  	      	<h3><u>{{query}}</u> so'rov uchun natijalar topilmadi !</h3>
-					  	      </div>  
-					  	
-					  	{% endif %}
-					  	
-					  	<br>
-					  	{% for movie  in movies %}
-					  	<ul style="list-style-type:none">
-					  		<a href="{% url 'movie:movie_detail' movie.slug %}"><li>
-					  		<h3 class="text-center"> {{movie.title}}<br><h5 class="text-center"  style="color:orange;">Kino filim</h5></h3><br>
+								
+							{% endif %}
+							<div class="browse-inner">{% for m in movies  %}
+								
+						
+							   <div class="col-md-2 w3l-movie-gride-agile">
+										 <a href="{% url 'movie:movie_detail' m.slug %}" class="hvr-shutter-out-horizontal"><img src="{{m.poster.url}}" title="{{m.title}}" alt=" " />
+									     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+									</a>
+									  <div class="mid-1">
+										<div class="w3l-movie-text">
+											<h6><a href="{% url 'movie:movie_detail' m.slug %}">{{m.title}}</a></h6>							
+										</div>
+										<div class="mid-2">
+										
+											<p>{{m.year}}</p>
+											<div class="block-stars">
+												<ul class="w3l-ratings">
+													     <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+														 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+														 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+														 <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+														 <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+														  
+										
+												</ul>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+											
+									</div>
+							 	    <div class="ribben two">
+										<p>Kino</p>
+									</div>	
+									</div>
+										{% endfor %}
 
-					  	</ul>
-					  	{% endfor %}
 
-					  </div>
 
 					</section>
 			

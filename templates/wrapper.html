@@ -163,17 +163,21 @@
 							<li><a href="{% url 'movie:posts' %}">Maqolalar</a></li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Davlati <b class="caret"></b></a>
+
+
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
-										<div class="col-sm-4">
-											{% for m in country %}
-											<ul style="display: inline-block;margin: auto; color: #fff; padding-left:10px;" class="multi-column-dropdown">
-												
-													
-												<li ><a href="{{m.get_absolute_url}}">{{m.name}}</a></li>
-												
-												
-											</ul>{% endfor %}
+									<div class="col-sm-12">
+										<ul class="multi-column-dropdown">
+										{% for m in country %}
+											
+											<li style="display: inline-block;margin: auto; color: #fff; padding-left:10px;"
+											class=""><a href="{{m.get_absolute_url}}">{{m.name}}</a></li>
+											
+										{% endfor %}
+										
+										</ul>
+
 										</div>
 										<div class="clearfix"></div>
 									</li>

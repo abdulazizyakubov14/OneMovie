@@ -75,7 +75,7 @@ class Actors(models.Model):
 class Movie(models.Model):
 	title = models.CharField('Kino nomi', max_length=250)
 	slug = models.SlugField('*', max_length=100, unique=True)
-	genre = models.ForeignKey(Genre, on_delete=models.PROTECT, related_name='genres')
+	genre = models.ManyToManyField(Genre, related_name='genres')
 	poster = models.ImageField('Poster', upload_to='movies/')
 	director = models.CharField('Rejissor', max_length=100)
 	trailer_link = models.CharField('You tube link', max_length=100)
@@ -85,6 +85,9 @@ class Movie(models.Model):
 	budget = models.PositiveIntegerField('Byudjet', default=0)
 	rating = models.DecimalField('Reyting',max_digits=5, decimal_places=2)
 	views = models.PositiveIntegerField('Korildi', default=0)
+
+	def get_absolute_url(self):
+		return reverse('movie:movie_detail', kwargs={'m_slug':self.slug})
 
 
 	def __str__(self):
@@ -102,7 +105,7 @@ class Multik(models.Model):
 	poster = models.ImageField('Poster', upload_to='movies/')
 	director = models.CharField('Rejissor', max_length=100)
 	trailer_link = models.CharField('You tube link', max_length=100)
-	genre = models.ForeignKey(Genre, on_delete=models.PROTECT, related_name='multik')
+	genre = models.ManyToManyField(Genre,related_name='multik')
 	country = models.CharField('Davlati', max_length=100, blank=True,)
 	year = models.PositiveIntegerField('Yili', default=2021)
 	budget = models.PositiveIntegerField('Byudjet', default=0)

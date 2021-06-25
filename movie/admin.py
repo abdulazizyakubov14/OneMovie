@@ -28,7 +28,7 @@ class ActorsAdmin(admin.ModelAdmin):
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
-	list_display = ['title', 'genre', 'year']
+	list_display = ['title',]
 	list_display_links = ['title']
 	prepopulated_fields = {'slug':('title',)}
 

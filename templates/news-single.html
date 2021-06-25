@@ -20,18 +20,23 @@
 								<img src="{{object.image.url}}" height="500" alt="" />
 								<h4>{{object.title}}</h4>
 								<div class="s-author">
-									<p>Posted By <a href="#"><i class="fa fa-user" aria-hidden="true"></i> {{object.author}}</a> &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> {{object.published}}&nbsp;&nbsp; <a href="#"><i class="fa fa-comments" aria-hidden="true"></i> Comments (10)</a></p>
+									<p>Posted By <a href="#"><i class="fa fa-user" aria-hidden="true"></i> {{object.author}}</a> &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i> {{object.published}}&nbsp;&nbsp; <a href="#"><i class="fa fa-commets" aria-hidden="true"></i></a></p>
 								</div>
 								<div id="fb-root"></div>
 								<div class="w3-agile-news-text">
 									<p>{{object.body}}</p>
 									<br>
 									<p><h4>Maqola teglari</h4></p>
-									{% for tag in tags %}
-
-									<span><a href="{% url 'movie:tag_posts' tag.slug %}"><button type="button" class="btn btn-outline-warning">{{tag.name}}</button></a></span>
+									
+									{% for tag in post.tag.all %}
+												
+													<a href="">
+														<span><a href="{{tag.get_absolute_url}}"><button type="button" class="btn btn-outline-warning">{{tag.name}}</button></a></span>
+													</a>
+												
+											{% endfor %}
+									
 										
-									{% endfor %}
 								</div>
 							</div>
 						</div>
