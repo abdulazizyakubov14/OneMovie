@@ -54,11 +54,6 @@ class MultiDetailView(DetailView):
 
 
 
-class ContactPageView(View):
-	# Contact page View
-	def get(self, request):
-		return render(request, 'contact.html')
-
 
 # Test  views 
 
@@ -139,9 +134,9 @@ def contact(request):
 		email = request.POST['email']
 		phone = request.POST['phone']
 		message = request.POST['message']
-		Contact.objects.create(name=name,last_name=last_name,phone=phone,email=email,message=message)
+		Contact.objects.create(first_name=first_name,last_name=last_name,subject=phone,email=email,message=message)
 		# messages.add_message(request, messages.SUCCESS, 'Tabriklaymiz aloqa muofaqiyat amalga oshirildi tez orada sizbilan bog\'lanamiz')
-		bot.send_message(my_id,f"Sayitdan xabar bor\nIsmi:  {name}\n Familiyasi: {last_name}\n Telfon raqami:  {phone}\nEmail:  {email}\n Xabari:  {message}")
+		bot.send_message(my_id,f"Sayitdan xabar bor\nIsmi:  {first_name}\n Familiyasi: {last_name}\n Telfon raqami:  {phone}\nEmail:  {email}\n Xabari:  {message}")
 	return render(request,'contact.html')
 
 # Errors 

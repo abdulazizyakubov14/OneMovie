@@ -7,7 +7,6 @@ urlpatterns = [
 	path('', views.HomePageView.as_view(), name='home'),
 	path('animation/', views.MultikView.as_view(), name='multik'),
 	path('movie/<slug:slug>', views.MovieDetailView.as_view(), name='movie_detail'),
-	path('contact/', views.ContactPageView.as_view(), name='contact'),
 	path('animation/<slug>', views.MultiDetailView.as_view(), name='mult_detail'),
 
 	#News url 
