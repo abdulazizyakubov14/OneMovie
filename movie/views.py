@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import View
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import FormMixin
 from .models import *
 import telebot 
 
-from .forms import MovieRatingForm
+from .forms import MovieRatingForm,CommentForm
 # Create your views here.
 
 my_id = 1705528794
@@ -38,12 +39,7 @@ class MovieDetailView(DetailView):
 	model = Movie
 	template_name = 'single.html'
 	slug_field = 'slug'
-	# def get(self,request, slug):
-	# 	det = Movie.objects.get(slug=slug)
-	# 	post = Movie.objects.all().order_by('?')[:8]
-	# 	context = {'post':post,}
 
-	# 	return render(request,'single.html')
 
 
 class MultiDetailView(DetailView):
